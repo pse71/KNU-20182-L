@@ -1,11 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<curses.h>
-#define title "math quiz\n\n\n\n\n\n\n\n\n\n\tinput +,-,x\tq: quit"
+#define title "\tmath quiz\n\n\n\n\n\n\n\n\n\n\tinput +,-,x\tq: quit"
 #define answer "answer = "
 #define clear1 "perfect!"
 #define c "congraturation"
 #define f "failed"
+#define g "Your grade is "
 char q[10];
 int n=1;
 void clear2()
@@ -13,6 +14,8 @@ void clear2()
 	clear();
 	move(10,15);
 	addstr(c);
+	move(13,15);
+	addstr(g); addstr("A+");
 	refresh();
 	getch();
 	endwin();
@@ -21,8 +24,19 @@ void fail()
 {
 	beep();
 	clear();
-	move(10,15);
+	move(10,20);
 	addstr(f);
+	move(13,15);
+	addstr(g);
+	
+	if(n==1)
+		addstr("F");
+	else if(n>1&&n<6)
+		addstr("C");
+	else if(n>5&&n<9)
+		addstr("B");
+	else
+		addstr("A");
 	refresh();
 	getch();
 	endwin();
@@ -36,18 +50,26 @@ void plus()
 	clear();
 	refresh();
 	
+	srandom(time(0));
 	a=rand()%10;
 	b=rand()%10;
 	q[0]=a+48;
 	q[4]=b+48;
 	d=a+b;
 
-	move(10,10);
+	if(n>1)
+	{
+		move(15,20);
+		addstr(clear1);
+		refresh();
+	}
+
+	move(10,20);
 	addstr(q);
 	
 
 	refresh();
-	move(13,15);
+	move(13,18);
 	addstr(answer);
 	refresh();
 	
@@ -56,8 +78,7 @@ void plus()
 
 	if(s==d)
 	{
-		move(8,10);
-		addstr(clear1);
+	
 		if(n<10)
 		{
 			n++;
@@ -77,18 +98,26 @@ void minus()
 	clear();
 	refresh();
 	
+	srandom(time(0));
 	a=rand()%10;
 	b=rand()%10;
 	q[0]=a+48;
 	q[4]=b+48;
 	d=a-b;
 
-	move(10,10);
+	if(n>1)
+	{
+		move(15,20);
+		addstr(clear1);
+		refresh();
+	}
+
+	move(10,20);
 	addstr(q);
 	
 
 	refresh();
-	move(13,15);
+	move(13,18);
 	addstr(answer);
 	refresh();
 	
@@ -97,8 +126,7 @@ void minus()
 
 	if(s==d)
 	{
-		move(8,10);
-		addstr(clear1);
+	
 		if(n<10)
 		{
 			n++;
@@ -118,18 +146,26 @@ void mult()
 	clear();
 	refresh();
 	
+	srandom(time(0));
 	a=rand()%10;
 	b=rand()%10;
 	q[0]=a+48;
 	q[4]=b+48;
 	d=a*b;
 
-	move(10,10);
+	if(n>1)
+	{
+		move(15,20);
+		addstr(clear1);
+		refresh();
+	}
+
+	move(10,20);
 	addstr(q);
 	
 
 	refresh();
-	move(13,15);
+	move(13,18);
 	addstr(answer);
 	refresh();
 	
@@ -138,8 +174,7 @@ void mult()
 
 	if(s==d)
 	{
-		move(8,10);
-		addstr(clear1);
+	
 		if(n<10)
 		{
 			n++;
@@ -182,3 +217,4 @@ void main()
 
 	}
 }
+

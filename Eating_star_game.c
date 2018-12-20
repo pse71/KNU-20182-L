@@ -90,8 +90,6 @@ void game()
 		past_y = y_pos;
 		past_x = x_pos;
 		
-		move(y_pos,x_pos);
-		addstr("@");
 		refresh();
 
 		on_input();

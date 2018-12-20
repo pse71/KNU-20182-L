@@ -87,7 +87,7 @@ void play_game()
     if ( !got_it )
     {
 	printw("\n");
-        printw("You ran out of guesses... the number was %d\n", my_number);
+        printw("out of guesses... the number was %d\n", my_number);
     }
 }
 

@@ -186,7 +186,7 @@ void mult()
 	else
 		fail();
 }
-void main()
+void math_main()
 {
 	q[1]=q[3]=q[5]=q[7]=' ';
 	q[8]='?';

@@ -87,12 +87,12 @@ void play_game()
     if ( !got_it )
     {
 	printw("\n");
-        printw("out of guesses... the number was %d\n", my_number);
+        printw("You ran out of guesses... the number was %d\n", my_number);
     }
 }
 
 // Loops the guessing game until the user decided to quite.
-int main()
+int guess_main()
 {
     int i=0;
     initscr();

@@ -6,3 +6,6 @@
 Makefile로 make해서 ./mini로 실행시키면 됩니다.
 
 소스 파일은 총 4개로 mini_main.c, math_quiz.c, catch_star.c guess_number.c
+
+시연 및 설명 영상 링크
+https://youtu.be/4FyUPqsXov0
